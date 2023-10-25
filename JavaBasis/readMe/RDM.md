@@ -33,6 +33,10 @@ public abstract class Animal {
 
     abstract void attack();
 
+    public void sleep() {
+        System.out.println("animal is sleeping!");
+    }
+
     @Override
     public String toString() {
         return "Animal{" +
@@ -79,6 +83,10 @@ public class Cat extends Animal {
 
     void eat() {
         System.out.println("cat:" + nickName + " is eating!");
+    }
+
+    private void clamp() {
+        System.out.println("cat:" + nickName + "is clamping!");
     }
 
     public void run() {
