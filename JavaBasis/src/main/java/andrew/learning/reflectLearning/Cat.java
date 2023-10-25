@@ -1,51 +1,61 @@
 package andrew.learning.reflectLearning;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.math.BigDecimal;
 import java.util.Date;
 
-public class Cat {
-    public String type;
+@Setter
+@Getter
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+public class Cat extends Animal {
+    public String catType;
 
-    String name;
+    private String nickName;
 
     Date birth;
 
-    public String getType() {
-        return type;
+    public Cat() {
+        System.out.println("cat 无参构造方法");
     }
 
-    public void setType(String type) {
-        this.type = type;
+    private Cat(String catType) {
+        super();
+        this.catType = catType;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getBirth() {
-        return birth;
-    }
-
-    public void setBirth(Date birth) {
+    public Cat(String name, Integer age, BigDecimal weight, String animalType, String catType, String nickName, Date birth) {
+        super(name, age, weight, animalType);
+        this.catType = catType;
+        this.nickName = nickName;
         this.birth = birth;
     }
 
     public void attack() {
-        System.out.println("cat:"+ name+" is attack");
+        System.out.println("cat:" + nickName + " is attack");
+    }
+
+    void eat() {
+        System.out.println("cat:" + nickName + " is eating!");
+    }
+
+    private void clamp() {
+        System.out.println("cat:" + nickName + "is clamping!");
     }
 
     public void run() {
-        System.out.println("cat:"+name+" is running!");
+        System.out.println("cat:" + nickName + " is running!");
     }
 
     @Override
     public String toString() {
         return "Cat{" +
-                "type='" + type + '\'' +
-                ", name='" + name + '\'' +
+                "type='" + catType + '\'' +
+                ", name='" + nickName + '\'' +
                 ", birth=" + birth +
                 '}';
     }
