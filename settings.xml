@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!-- 本地仓库路径（可选） -->
+    <localRepository>D:\WorkRepository\maven</localRepository>
+
+    <!-- 镜像配置 -->
+    <mirrors>
+        <mirror>
+            <id>aliyun-maven</id>
+            <name>Aliyun Maven Mirror</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <!-- 匹配所有仓库（central、jcenter等） -->
+            <mirrorOf>central,jcenter,!repo,!jitpack.io,!maven2</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <!-- 可选的仓库配置（通常镜像已足够） -->
+    <profiles>
+        <profile>
+            <id>aliyun</id>
+            <repositories>
+                <repository>
+                    <id>aliyun-public</id>
+                    <name>Aliyun Public Repository</name>
+                    <url>https://maven.aliyun.com/repository/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled> <!-- 默认关闭快照版本 -->
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>aliyun-plugin</id>
+                    <name>Aliyun Plugin Repository</name>
+                    <url>http://maven.aliyun.com/repository/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+
+    <!-- 激活阿里云配置 -->
+    <activeProfiles>
+        <activeProfile>aliyun</activeProfile>
+    </activeProfiles>
+</settings>
