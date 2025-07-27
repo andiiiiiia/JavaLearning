@@ -38,3 +38,5 @@ ssh-keygen -t rsa -C "邮箱"
 ### 1.7 配置setting文件
 1)  阿里云镜像：
     https://maven.aliyun.com/nexus/content/groups/public
+
+### 2. 安装MySQL
