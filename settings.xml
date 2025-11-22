@@ -11,8 +11,8 @@
             <id>aliyun-maven</id>
             <name>Aliyun Maven Mirror</name>
             <url>https://maven.aliyun.com/repository/public</url>
-            <!-- 匹配所有仓库（central、jcenter等） -->
-            <mirrorOf>central,jcenter,!repo,!jitpack.io,!maven2</mirrorOf>
+            <!-- 匹配仓库（central、jcenter等） -->
+            <mirrorOf>central</mirrorOf>
         </mirror>
     </mirrors>
 
@@ -20,6 +20,7 @@
     <profiles>
         <profile>
             <id>aliyun</id>
+
             <repositories>
                 <repository>
                     <id>aliyun-public</id>
@@ -33,11 +34,12 @@
                     </snapshots>
                 </repository>
             </repositories>
+
             <pluginRepositories>
                 <pluginRepository>
                     <id>aliyun-plugin</id>
                     <name>Aliyun Plugin Repository</name>
-                    <url>http://maven.aliyun.com/repository/public</url>
+                    <url>https://maven.aliyun.com/repository/public</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
